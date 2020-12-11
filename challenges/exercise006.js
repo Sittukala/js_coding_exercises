@@ -5,7 +5,15 @@
  * @returns {Number}
  */
 const sumMultiples = arr => {
+  sum=0;
   if (arr === undefined) throw new Error("arr is required");
+  arr.forEach(element => {
+    if((element%3 == 0 ) || (element % 5 ==0)){
+      sum+=element
+    }
+  });
+  console.log(sum);
+  return sum;
 };
 
 /**
@@ -15,6 +23,15 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  charArr = str.split("");
+  charArr.forEach(char => {
+    if(char == 'A' || char == 'T' || char == 'C' || char == 'G' ){
+      return true
+    }
+    else{
+      return false;
+    }
+  });
 };
 
 /**
@@ -24,6 +41,19 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  charArr =  str.split("")
+  complement = ""
+  charArr.forEach(char => {
+    if(char == 'A')
+      complement+= 'T';
+    else if(char == 'C')
+      complement+='G'
+   else if(char == 'T')
+      complement+='A'
+    else (char == 'G')
+      complement+='C'
+  });
+  return complement
 };
 
 /**
@@ -33,6 +63,17 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  for(let i=0;i<=n;i++){
+    if(i == 1 || i == n ){
+      continue;
+    }
+    if(n%i ==0){
+      return false;
+    }
+    else{
+      return true
+    }
+  }
 };
 
 /**
@@ -49,6 +90,9 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+
+  const matrix = new Array(n).fill(fill).map(() => new Array(n).fill(fill));
+  return matrix;
 };
 
 /**

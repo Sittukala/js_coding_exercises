@@ -4,6 +4,13 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  let digit = "" + n;
+  let sum=0;
+  digitArr = digit.split("");
+  digitArr.forEach(element => {
+    sum+=parseInt(element)
+  });
+  return sum; 
 };
 
 /**
@@ -17,6 +24,16 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  if(step==undefined) step=1;
+
+  let array=[]
+  let element=start;
+  while(element <= end){
+    
+    array.push(element);
+    element=start+step;
+  }
+  return array;
 };
 
 /**
@@ -65,6 +82,8 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  var result = '/^#?([a-fd]{2})([a-fd]{2})([a-fd]{2})$/i'.exec(hex);
+  //bit confused with regex. Need to learn
 };
 
 /**
